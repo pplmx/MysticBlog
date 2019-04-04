@@ -13,4 +13,11 @@ public interface UserDAO extends ReactiveMongoRepository<User, String> {
      */
     Mono<User> findUserByUserName(String username);
 
+    /**
+     * delete user by username
+     * @param username username
+     * @return the result of delete
+     */
+    Mono<Long> deleteUserByUserName(String username);
+
 }
