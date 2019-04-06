@@ -6,13 +6,35 @@ import reactor.core.publisher.Mono;
 public interface UserService {
 
     /**
-     * create user
+     * create or update user
+     *
      * @param user user info
-     * @return the result of create
+     * @return the result of create or update
      */
-    Mono<Integer> create(User user);
-    Mono<Integer> update(User user);
-    Mono<Integer> retrieve(User user);
-    Mono<Integer> delete(User user);
+    Mono<Integer> save(User user);
+
+    /**
+     * find user by id
+     *
+     * @param id id
+     * @return User
+     */
+    Mono<User> find(Integer id);
+
+    /**
+     * find user by name
+     *
+     * @param name name
+     * @return User
+     */
+    Mono<User> find(String name);
+
+    /**
+     * remove user by id
+     *
+     * @param id id
+     * @return the result of delete
+     */
+    Mono<Integer> remove(Integer id);
 
 }
