@@ -4,10 +4,11 @@ import individual.mystic.blog.pojo.User;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Mono;
 
-public interface UserDAO extends ReactiveMongoRepository<User, String> {
+public interface UserDAO extends ReactiveMongoRepository<User, Integer> {
 
     /**
      * find user by username
+     *
      * @param username username
      * @return User
      */
@@ -15,9 +16,10 @@ public interface UserDAO extends ReactiveMongoRepository<User, String> {
 
     /**
      * delete user by username
+     *
      * @param username username
      * @return the result of delete
      */
-    Mono<Long> deleteUserByUserName(String username);
+    Mono<Integer> deleteUserByUserName(String username);
 
 }

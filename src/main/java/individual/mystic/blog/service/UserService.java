@@ -9,9 +9,9 @@ public interface UserService {
      * create or update user
      *
      * @param user user info
-     * @return the result of create or update
+     * @return user
      */
-    Mono<Integer> save(User user);
+    Mono<User> save(User user);
 
     /**
      * find user by id
@@ -30,11 +30,11 @@ public interface UserService {
     Mono<User> find(String name);
 
     /**
-     * remove user by id
+     * remove user by username
      *
-     * @param id id
+     * @param name name
      * @return the result of delete
      */
-    Mono<Integer> remove(Integer id);
+    Mono<Integer> remove(String name);
 
 }
