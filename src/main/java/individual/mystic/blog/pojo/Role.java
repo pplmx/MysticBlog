@@ -3,7 +3,9 @@ package individual.mystic.blog.pojo;
 import lombok.Data;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Data
 @ToString
-public class Role {
+public class Role implements Serializable {
 }

@@ -9,6 +9,4 @@ import java.io.Serializable;
 @ToString
 public class Article implements Serializable {
 
-
-
 }
