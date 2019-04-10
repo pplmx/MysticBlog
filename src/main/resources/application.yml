@@ -2,3 +2,6 @@ spring:
     data:
         mongodb:
             uri: mongodb://root:root123@127.0.0.1:27017/blog
+            username:
+            password:
+            port:
