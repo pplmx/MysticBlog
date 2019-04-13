@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -26,5 +27,6 @@ public class User implements Serializable {
     private int userSex;
     private String userLastLoginIP;
     private Date userLastLoginTime;
-    private List<String> roles;
+    @DBRef
+    private List<Role> roles;
 }

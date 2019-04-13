@@ -1,4 +1,4 @@
 spring:
     data:
         mongodb:
-            uri: mongodb://root:root@127.0.0.1:32769/blog
+            uri: mongodb://blog:Blog1234!@127.0.0.1:27017/blog
