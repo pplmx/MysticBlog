@@ -2,6 +2,7 @@ package individual.mystic.blog.controller;
 
 import individual.mystic.blog.pojo.User;
 import individual.mystic.blog.service.UserService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +18,24 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @PostMapping
+    /**
+     * narrow the request mapping based on the 'Content-Type' of the request
+     * only permit 'application/json' request
+     * @param user user
+     * @return user
+     */
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public Mono<User> save(User user) {
         return userService.save(user);
     }
 
-    @DeleteMapping
+    /**
+     * narrow the request mapping based on the 'Content-Type' of the request
+     * !text/plain means any content type other than text/plain
+     * @param user user
+     * @return the result of delete user
+     */
+    @DeleteMapping(consumes = "!text/plain")
     public Mono<Integer> remove(User user) {
         return userService.remove(user.getUserName());
     }
