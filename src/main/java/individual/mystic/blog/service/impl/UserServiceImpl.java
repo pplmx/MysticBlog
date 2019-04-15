@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<User> find(Integer id) {
-        return null;
+        return userDAO.findById(id);
     }
 
     @Override
