@@ -1,16 +1,14 @@
 package individual.mystic.blog.pojo;
 
 import lombok.Data;
-import lombok.ToString;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.Serializable;
-
 @Data
-@ToString
+@EqualsAndHashCode(callSuper = true)
 @Document
-public class Role implements Serializable {
+public class Role extends BaseEntity {
     @Indexed(unique = true)
     private String roleName;
 }

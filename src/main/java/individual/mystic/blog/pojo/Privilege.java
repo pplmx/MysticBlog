@@ -1,11 +1,9 @@
 package individual.mystic.blog.pojo;
 
 import lombok.Data;
-import lombok.ToString;
-
-import java.io.Serializable;
+import lombok.EqualsAndHashCode;
 
 @Data
-@ToString
-public class Privilege implements Serializable {
+@EqualsAndHashCode(callSuper = true)
+public class Privilege extends BaseEntity {
 }
