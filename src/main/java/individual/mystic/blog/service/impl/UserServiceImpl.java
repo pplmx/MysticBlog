@@ -27,12 +27,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Mono<User> find(Integer id) {
+    public Mono<User> findById(Integer id) {
         return userDAO.findById(id);
     }
 
     @Override
-    public Mono<User> find(String name) {
+    public Mono<User> findByName(String name) {
         return userDAO.findUserByUserName(name);
     }
 

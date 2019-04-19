@@ -19,7 +19,7 @@ public interface UserService {
      * @param id id
      * @return User
      */
-    Mono<User> find(Integer id);
+    Mono<User> findById(Integer id);
 
     /**
      * find user by name
@@ -27,7 +27,7 @@ public interface UserService {
      * @param name name
      * @return User
      */
-    Mono<User> find(String name);
+    Mono<User> findByName(String name);
 
     /**
      * remove user by username

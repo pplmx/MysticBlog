@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 public interface UserDAO extends ReactiveMongoRepository<User, Integer> {
 
     /**
-     * find user by username
+     * findByName user by username
      *
      * @param username username
      * @return User
