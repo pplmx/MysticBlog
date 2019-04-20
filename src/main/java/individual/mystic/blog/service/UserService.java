@@ -1,6 +1,7 @@
 package individual.mystic.blog.service;
 
 import individual.mystic.blog.pojo.User;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface UserService {
@@ -30,11 +31,18 @@ public interface UserService {
     Mono<User> findByName(String name);
 
     /**
+     * find all user
+     *
+     * @return list
+     */
+    Flux<User> findAll();
+
+    /**
      * remove user by username
      *
      * @param name name
      * @return the result of delete
      */
-    Mono<Integer> remove(String name);
+    Mono<Void> remove(String name);
 
 }

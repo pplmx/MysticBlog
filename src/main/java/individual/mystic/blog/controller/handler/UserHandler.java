@@ -10,6 +10,8 @@ import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
 
+import static org.springframework.web.reactive.function.BodyInserters.fromPublisher;
+
 @Component
 public class UserHandler {
 
@@ -21,6 +23,33 @@ public class UserHandler {
         return ServerResponse.ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(userService.findById(Integer.parseInt(id)), User.class);
+    }
+
+    public Mono<ServerResponse> findByName(ServerRequest request) {
+        String name = request.pathVariable("name");
+        return ServerResponse.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(userService.findByName(name), User.class);
+    }
+
+    public Mono<ServerResponse> findAll(ServerRequest request) {
+        return ServerResponse.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(userService.findAll(), User.class);
+    }
+
+    public Mono<ServerResponse> save(ServerRequest request) {
+        final Mono<User> user = request.bodyToMono(User.class);
+        return ServerResponse.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(fromPublisher(user.flatMap(userService::save), User.class));
+    }
+
+    public Mono<ServerResponse> delete(ServerRequest request) {
+        String name = request.pathVariable("name");
+        return ServerResponse.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(userService.remove(name), Void.class);
     }
 
 }

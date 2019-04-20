@@ -4,6 +4,7 @@ import individual.mystic.blog.dao.UserDAO;
 import individual.mystic.blog.pojo.User;
 import individual.mystic.blog.service.UserService;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
@@ -37,7 +38,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Mono<Integer> remove(String name) {
+    public Flux<User> findAll() {
+        return userDAO.findAll();
+    }
+
+    @Override
+    public Mono<Void> remove(String name) {
         return userDAO.deleteUserByUserName(name);
     }
 }
