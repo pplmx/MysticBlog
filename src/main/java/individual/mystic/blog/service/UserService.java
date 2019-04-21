@@ -38,11 +38,11 @@ public interface UserService {
     Flux<User> findAll();
 
     /**
-     * remove user by username
+     * delete user by username
      *
      * @param name name
      * @return the result of delete
      */
-    Mono<Void> remove(String name);
+    Mono<Void> deleteByName(String name);
 
 }

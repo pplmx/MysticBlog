@@ -13,7 +13,7 @@ public interface RoleService {
     Mono<Role> save(Role role);
 
     /**
-     * remove role
+     * deleteByName role
      * @param role Role
      * @return the result
      */

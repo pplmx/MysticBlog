@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Mono<Void> remove(String name) {
+    public Mono<Void> deleteByName(String name) {
         return userDAO.deleteUserByUserName(name);
     }
 }

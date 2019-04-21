@@ -49,7 +49,7 @@ public class UserHandler {
         String name = request.pathVariable("name");
         return ServerResponse.ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(userService.remove(name), Void.class);
+                .body(userService.deleteByName(name), Void.class);
     }
 
 }
