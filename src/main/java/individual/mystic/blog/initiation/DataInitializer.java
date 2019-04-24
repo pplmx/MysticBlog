@@ -13,7 +13,8 @@ public class DataInitializer implements ApplicationListener<ApplicationReadyEven
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-
+        log.info("<<<<<<<<<<Initialization for Mystic Blog>>>>>>>>>>");
+        log.info(">>>>>>>>>>Complete to initialization<<<<<<<<<<");
     }
 
 }
