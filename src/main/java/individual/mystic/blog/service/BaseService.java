@@ -5,7 +5,8 @@ import reactor.core.publisher.Mono;
 
 /**
  * Base Service Interface
- * @param <T> the domain type the repository manages
+ *
+ * @param <T>  the domain type the repository manages
  * @param <ID> the type of the id of the entity the repository manages
  */
 public interface BaseService<T, ID> {
@@ -14,13 +15,13 @@ public interface BaseService<T, ID> {
      * add or update T
      *
      * @param entity T
-     * @param <S>    extends from T
      * @return T
      */
-    <S extends T> Mono<S> save(S entity);
+    Mono<T> save(T entity);
 
     /**
      * find T by ID
+     *
      * @param id ID
      * @return T
      */
@@ -35,9 +36,10 @@ public interface BaseService<T, ID> {
 
     /**
      * remove T by ID
+     *
      * @param id ID
      * @return void
      */
-    Mono<Void> remove(ID id);
+    Mono<Void> removeById(ID id);
 
 }
