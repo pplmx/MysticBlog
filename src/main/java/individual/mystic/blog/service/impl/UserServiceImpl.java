@@ -19,11 +19,12 @@ public class UserServiceImpl implements UserService {
     public Mono<User> save(User user) {
         return userDAO.save(user)
                 .doOnError(System.out::println)
-                .onErrorResume(e -> userDAO.findUserByUserName(user.getUserName())
-                        .flatMap(originUser -> {
-                            user.setUserID(originUser.getUserID());
-                            return userDAO.save(user);
-                        })
+                .onErrorResume(
+                        e -> userDAO.findUserByUserName(user.getUserName())
+                                .flatMap(originUser -> {
+                                    user.setUserID(originUser.getUserID());
+                                    return userDAO.save(user);
+                                })
                 );
     }
 
