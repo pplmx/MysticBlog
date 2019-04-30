@@ -22,16 +22,16 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Mono<Article> findById(Integer integer) {
-        return null;
+        return dao.findById(integer);
     }
 
     @Override
     public Flux<Article> findAll() {
-        return null;
+        return dao.findAll();
     }
 
     @Override
     public Mono<Void> removeById(Integer integer) {
-        return null;
+        return dao.deleteById(integer);
     }
 }
