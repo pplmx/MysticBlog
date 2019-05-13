@@ -21,6 +21,7 @@ public class UserController {
     /**
      * narrow the request mapping based on the 'Content-Type' of the request
      * only permit 'application/json' request
+     *
      * @param user user
      * @return user
      */
@@ -32,6 +33,7 @@ public class UserController {
     /**
      * narrow the request mapping based on the 'Content-Type' of the request
      * !text/plain means any content type other than text/plain
+     *
      * @param user user
      * @return the result of delete user
      */
