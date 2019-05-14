@@ -3,10 +3,7 @@ package individual.mystic.blog.controller;
 import individual.mystic.blog.pojo.User;
 import individual.mystic.blog.service.UserService;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
@@ -26,7 +23,7 @@ public class UserController {
      * @return user
      */
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<User> save(User user) {
+    public Mono<User> save(@RequestBody User user) {
         return userService.save(user);
     }
 
@@ -38,7 +35,7 @@ public class UserController {
      * @return the result of delete user
      */
     @DeleteMapping(consumes = "!text/plain")
-    public Mono<Void> remove(User user) {
+    public Mono<Void> remove(@RequestBody User user) {
         return userService.deleteByName(user.getUserName());
     }
 
