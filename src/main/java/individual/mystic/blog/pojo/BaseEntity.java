@@ -9,8 +9,6 @@ import java.util.Date;
 @Data
 class BaseEntity implements Serializable {
 
-    @Id
-    private String id;
 
     @CreatedBy
     private String createdBy;
