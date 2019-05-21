@@ -7,7 +7,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class Article extends BaseEntity {
 
-    private Integer articleID;
     private String articleName;
     private String articleIP;
     private int articlePV;
@@ -16,6 +15,5 @@ public class Article extends BaseEntity {
     private int articleTopShow;
     private int articleStar;
     private Integer userID;
-    private Integer sortArticleID;
 
 }
