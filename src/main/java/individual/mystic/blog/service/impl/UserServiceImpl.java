@@ -13,38 +13,38 @@ import javax.annotation.Resource;
 public class UserServiceImpl implements UserService {
 
     @Resource
-    private UserDAO userDAO;
+    private UserDAO dao;
 
     @Override
     public Mono<User> save(User user) {
-        return userDAO.save(user)
+        return dao.save(user)
                 .doOnError(System.out::println)
                 .onErrorResume(
-                        e -> userDAO.findUserByUserName(user.getUserName())
+                        e -> dao.findUserByUserName(user.getUserName())
                                 .flatMap(originUser -> {
                                     user.setUserID(originUser.getUserID());
-                                    return userDAO.save(user);
+                                    return dao.save(user);
                                 })
                 );
     }
 
     @Override
     public Mono<User> findById(Integer id) {
-        return userDAO.findById(id);
+        return dao.findById(id);
     }
 
     @Override
     public Mono<User> findByName(String name) {
-        return userDAO.findUserByUserName(name);
+        return dao.findUserByUserName(name);
     }
 
     @Override
     public Flux<User> findAll() {
-        return userDAO.findAll();
+        return dao.findAll();
     }
 
     @Override
     public Mono<Void> deleteByName(String name) {
-        return userDAO.deleteUserByUserName(name);
+        return dao.deleteUserByUserName(name);
     }
 }
