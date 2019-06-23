@@ -13,7 +13,7 @@ import java.util.List;
 @Document
 public class Role extends BaseEntity {
     @Indexed(unique = true)
-    private String roleName;
+    private String name;
     @DBRef
     private List<Privilege> privileges;
 }

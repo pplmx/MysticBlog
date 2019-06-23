@@ -16,16 +16,16 @@ import java.util.List;
 public class User extends BaseEntity {
 
     @Id
-    private Integer userID;
+    private Integer id;
     @Indexed(unique = true)
-    private String userName;
-    private String userPWD;
-    private String userEmail;
-    private String userPhone;
-    private String userQQ;
-    private int userSex;
-    private String userLastLoginIP;
-    private Date userLastLoginTime;
+    private String username;
+    private String password;
+    private String email;
+    private String phone;
+    private String qq;
+    private int sex;
+    private String lastLoginIp;
+    private Date lastLoginDate;
     @DBRef
     private List<Role> roles;
 }
