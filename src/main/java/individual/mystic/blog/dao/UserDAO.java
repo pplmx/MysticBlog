@@ -14,7 +14,7 @@ public interface UserDAO extends ReactiveMongoRepository<User, Integer> {
      * @param username username
      * @return User
      */
-    Mono<User> findUserByUserName(String username);
+    Mono<User> findUserByUsername(String username);
 
     /**
      * delete user by username
@@ -22,6 +22,6 @@ public interface UserDAO extends ReactiveMongoRepository<User, Integer> {
      * @param username username
      * @return the result of delete
      */
-    Mono<Void> deleteUserByUserName(String username);
+    Mono<Void> deleteUserByUsername(String username);
 
 }

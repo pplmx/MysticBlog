@@ -20,9 +20,9 @@ public class UserServiceImpl implements UserService {
         return dao.save(user)
                 .doOnError(System.out::println)
                 .onErrorResume(
-                        e -> dao.findUserByUserName(user.getUserName())
+                        e -> dao.findUserByUsername(user.getUsername())
                                 .flatMap(originUser -> {
-                                    user.setUserID(originUser.getUserID());
+                                    user.setId(originUser.getId());
                                     return dao.save(user);
                                 })
                 );
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<User> findByName(String name) {
-        return dao.findUserByUserName(name);
+        return dao.findUserByUsername(name);
     }
 
     @Override
@@ -45,6 +45,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Mono<Void> deleteByName(String name) {
-        return dao.deleteUserByUserName(name);
+        return dao.deleteUserByUsername(name);
     }
 }

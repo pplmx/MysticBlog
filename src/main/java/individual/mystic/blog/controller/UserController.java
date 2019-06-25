@@ -36,7 +36,7 @@ public class UserController {
      */
     @DeleteMapping(consumes = "!text/plain")
     public Mono<Void> remove(@RequestBody User user) {
-        return userService.deleteByName(user.getUserName());
+        return userService.deleteByName(user.getUsername());
     }
 
 }
