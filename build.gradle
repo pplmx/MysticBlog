@@ -17,10 +17,13 @@ configurations {
 
 repositories {
     mavenCentral()
+    /*swagger snapshot version*/
+    maven { url "http://oss.jfrog.org/artifactory/oss-snapshot-local/" }
 }
 
 ext {
-    swaggerVersion = '2.9.2'
+    /*swaggerVersion = '2.9.2'*/
+    swaggerVersion = '3.0.0-SNAPSHOT'
 }
 
 dependencies {
