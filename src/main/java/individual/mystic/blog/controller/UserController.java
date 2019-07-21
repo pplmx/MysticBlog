@@ -2,12 +2,14 @@ package individual.mystic.blog.controller;
 
 import individual.mystic.blog.pojo.User;
 import individual.mystic.blog.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
 
+@Api("User Controller")
 @RestController
 @RequestMapping("/user")
 public class UserController {
