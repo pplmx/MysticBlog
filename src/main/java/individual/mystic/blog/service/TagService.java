@@ -1,4 +1,6 @@
 package individual.mystic.blog.service;
 
-public interface TagService {
+import individual.mystic.blog.pojo.Tag;
+
+public interface TagService extends BaseService<Tag, Integer> {
 }

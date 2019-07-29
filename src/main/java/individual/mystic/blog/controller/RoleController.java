@@ -2,12 +2,14 @@ package individual.mystic.blog.controller;
 
 import individual.mystic.blog.pojo.Role;
 import individual.mystic.blog.service.RoleService;
+import io.swagger.annotations.Api;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
 
+@Api("Role Controller")
 @RestController
 @RequestMapping(value = "/role", consumes = MediaType.APPLICATION_JSON_VALUE)
 public class RoleController {
