@@ -2,3 +2,14 @@ spring:
     data:
         mongodb:
             uri: mongodb://blog:Blog1234!@127.0.0.1:27017/blog
+
+---
+management:
+    endpoint:
+        health:
+            show-details: when_authorized
+            roles: ADMIN
+    endpoints:
+        web:
+            cors:
+                allowed-origins: https://localhost/
