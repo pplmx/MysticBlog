@@ -24,6 +24,7 @@ repositories {
 ext {
     /*swaggerVersion = '2.9.2'*/
     swaggerVersion = '3.0.0-SNAPSHOT'
+    junitVersion = '5.5.1'
 }
 
 dependencies {
@@ -42,6 +43,18 @@ dependencies {
 
     annotationProcessor 'org.projectlombok:lombok'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    /*exclude junit4 to use junit5*/
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit', module: 'junit'
+    }
+
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     testImplementation 'io.projectreactor:reactor-test'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }
