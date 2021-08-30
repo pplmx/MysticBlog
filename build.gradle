@@ -23,7 +23,7 @@ repositories {
 
 ext {
     /*swaggerVersion = '3.0.0'*/
-    swaggerVersion = '3.0.0-SNAPSHOT'
+    swaggerVersion = '3.0.0'
     junitVersion = '5.7.2'
 }
 
